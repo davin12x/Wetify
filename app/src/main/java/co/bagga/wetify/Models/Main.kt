@@ -5,9 +5,9 @@ package co.bagga.wetify.Models
  */
 
 class Main {
-    var temp: Float? = null
-    var tempMin: Float? = null
-    var tampMax: Float? = null
-    var pressure: Float? = null
+    var temp: Double? = null
+    var temp_min: Double? = null
+    var temp_max: Double? = null
+    var pressure: Double? = null
     var humidity: Float? = null
 }

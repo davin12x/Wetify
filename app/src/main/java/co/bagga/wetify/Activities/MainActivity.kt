@@ -6,6 +6,7 @@ import android.util.Log
 import co.bagga.wetify.Interface.HttpCallBack
 import co.bagga.wetify.Network.RequestGenerator
 import co.bagga.wetify.R
+import co.bagga.wetify.Utils.JsonParser
 
 class MainActivity : AppCompatActivity() {
     val TAG: String = javaClass.simpleName
@@ -13,11 +14,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fetchWeatherDataByName(RequestGenerator.getInstance(applicationContext))
 
-        val requestGenerator = RequestGenerator.getInstance(applicationContext)
+    }
+
+    fun fetchWeatherDataByName(requestGenerator: RequestGenerator) {
         requestGenerator.generateFetchWeatherForecastByNameHttpRequest("Kitchener", object: HttpCallBack {
             override fun onHttpRequestSuccess(response: String, responseCode: Int) {
-                Log.e(TAG, response)
+                var weatherList = JsonParser.parseJsonWeatherList(response)
+
             }
 
             override fun onHttpRequestError(response: String, responseCode: Int) {
