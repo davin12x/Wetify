@@ -14,12 +14,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        fetchWeatherDataByName(RequestGenerator.getInstance(applicationContext))
-
+        supportActionBar?.elevation = 0f
+        fetchWeatherDataByName("Kitchener", RequestGenerator.getInstance(applicationContext))
     }
 
-    fun fetchWeatherDataByName(requestGenerator: RequestGenerator) {
-        requestGenerator.generateFetchWeatherForecastByNameHttpRequest("Kitchener", object: HttpCallBack {
+    fun fetchWeatherDataByName(cityName: String, requestGenerator: RequestGenerator) {
+        requestGenerator.generateFetchWeatherForecastByNameHttpRequest(cityName, object: HttpCallBack {
             override fun onHttpRequestSuccess(response: String, responseCode: Int) {
                 var weatherList = JsonParser.parseJsonWeatherList(response)
 
