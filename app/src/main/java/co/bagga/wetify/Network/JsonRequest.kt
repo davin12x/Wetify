@@ -14,6 +14,12 @@ object JsonRequest {
     fun generateJsonObjectRequest(URL: String, httpCallBack: HttpCallBack): JsonObjectRequest {
         return JsonObjectRequest(Request.Method.GET, URL, null,
                 Response.Listener<JSONObject> { response -> httpCallBack.onHttpRequestSuccess(response.toString(), 200) },
-                Response.ErrorListener { error -> httpCallBack.onHttpRequestError(error.localizedMessage, error.networkResponse.statusCode) })
+                Response.ErrorListener { error ->
+                    var errorCode = 400
+                    if (error.networkResponse != null) {
+                        errorCode = error.networkResponse.statusCode
+                    }
+                    httpCallBack.onHttpRequestError(error.toString(), errorCode)
+                })
     }
 }

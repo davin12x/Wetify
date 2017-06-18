@@ -6,8 +6,12 @@ package co.bagga.wetify.Utils
 
 class UrlBuilder {
     companion object {
-        fun buildForeCastUrlByName(cityName: String): String {
-            return Constants.Companion.BASE_OPEN_WEATHER_API + "q=" + cityName + "&" + Constants.Companion.API_KEY
+        fun buildFiveDaysForeCastUrlByName(cityName: String): String {
+            return Constants.Companion.BASE_OPEN_WEATHER_API + Constants.Companion.FORECAST + "q=" + cityName + "&" + Constants.Companion.API_KEY
+        }
+
+        fun buildCurrentTimeForeCastUrlByName(cityName: String): String {
+            return Constants.Companion.BASE_OPEN_WEATHER_API + "weather?q=" + cityName + "&" + Constants.Companion.API_KEY + "&units=metric"
         }
     }
 }

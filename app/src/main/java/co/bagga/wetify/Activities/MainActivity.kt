@@ -30,8 +30,9 @@ class MainActivity : AppCompatActivity() {
     fun fetchWeatherDataByName(cityName: String, requestGenerator: RequestGenerator) {
         requestGenerator.generateFetchWeatherForecastByNameHttpRequest(cityName, object: HttpCallBack {
             override fun onHttpRequestSuccess(response: String, responseCode: Int) {
-                val weatherList = JsonParser.parseJsonWeatherList(response)
-                weatherAdapter.refreshData(weatherList)
+
+                val weatherData = JsonParser.parseCurrentWeather(response)
+                weatherAdapter.refreshData(weatherData)
             }
 
             override fun onHttpRequestError(response: String, responseCode: Int) {

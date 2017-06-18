@@ -1,24 +1,24 @@
 package co.bagga.wetify.Adapter
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import co.bagga.wetify.Models.WeatherList
+import co.bagga.wetify.Models.WeatherData
 import co.bagga.wetify.R
 import co.bagga.wetify.Utils.FilterWeatherDataByDay
-import co.bagga.wetify.Utils.TimeUtil
 import co.bagga.wetify.WeatherViewHolder
 
 /**
  * Created by Lalit Bagga on 2017-05-27.
+ *
+ * Adapter used to show list of weather of various cities
  */
 class WeatherAdapter : RecyclerView.Adapter<WeatherViewHolder>() {
 
-    internal var data: ArrayList<WeatherList>
+    internal var data: ArrayList<WeatherData>
 
     init {
-        data = ArrayList<WeatherList>()
+        data = ArrayList<WeatherData>()
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup?, p1: Int): WeatherViewHolder {
@@ -34,8 +34,8 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherViewHolder>() {
         return data.size
     }
 
-    fun refreshData(data: ArrayList<WeatherList>) {
-        this.data = FilterWeatherDataByDay.filterData(data)
-        notifyDataSetChanged()
+    fun refreshData(data: WeatherData) {
+        this.data.add(data)
+        notifyItemChanged(this.data.size)
     }
 }
