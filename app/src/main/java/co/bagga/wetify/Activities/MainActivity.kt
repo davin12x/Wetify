@@ -10,6 +10,7 @@ import co.bagga.wetify.Interface.HttpCallBack
 import co.bagga.wetify.Network.RequestGenerator
 import co.bagga.wetify.R
 import co.bagga.wetify.Utils.JsonParser
+import co.bagga.wetify.Utils.SharedPreference
 
 class MainActivity : AppCompatActivity() {
     val TAG: String = javaClass.simpleName
