@@ -1,6 +1,7 @@
 package co.bagga.wetify.Network
 
 import android.content.Context
+import android.util.Log
 import co.bagga.wetify.Interface.HttpCallBack
 import co.bagga.wetify.Utils.UrlBuilder
 
@@ -26,7 +27,8 @@ class RequestGenerator private constructor(applicationContext: Context){
     }
 
     fun generateFetchWeatherForecastByNameHttpRequest(cityName: String, httpCallBack: HttpCallBack) {
-        var URL = UrlBuilder.buildForeCastUrlByName(cityName);
+        val URL = UrlBuilder.buildForeCastUrlByName(cityName)
+        Log.e("bla", URL )
         return MyVolley.getInstance(mApplicationContext!!)
                 .addToRequestQueue(JsonRequest.generateJsonObjectRequest(URL, httpCallBack))
     }

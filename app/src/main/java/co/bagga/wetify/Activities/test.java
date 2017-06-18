@@ -25,5 +25,12 @@ import co.bagga.wetify.WeatherViewHolder;
 public class test  {
 
     private ImageView imageView;
+    ArrayList data = new ArrayList();
+
+    public test() {
+        for (int i = 0; i< data.size(); i++) {
+
+        }
+    }
 
 }

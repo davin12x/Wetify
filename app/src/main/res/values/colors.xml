@@ -3,4 +3,6 @@
     <color name="colorPrimary">#8699BC</color>
     <color name="colorPrimaryDark">#8699BC</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFF</color>
+    <color name="weather_item_row_background_color">#80FFFFFF</color>
 </resources>
