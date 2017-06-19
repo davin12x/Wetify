@@ -57,13 +57,15 @@ class MainActivity extends AppCompatActivity implements View.OnClickListener {
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(this, data);
-                fetchWeatherDataByName(place.getAddress().toString(), RequestGenerator.Companion.getInstance(getApplicationContext()));
-                SharedPreference.Companion.getInstance(getApplicationContext()).saveWeatherCityList(place.getAddress().toString());
+                String address = place.getAddress().toString().replace(",", " ");
+                fetchWeatherDataByName(address, RequestGenerator.Companion.getInstance(getApplicationContext()));
+                SharedPreference.Companion.getInstance(getApplicationContext()).saveWeatherCityList(address);
             }
         }
     }
 
     private void fetchWeatherDataByName(String cityName, RequestGenerator requestGenerator) {
+
         requestGenerator.generateFetchWeatherForecastByNameHttpRequest(cityName, new HttpCallBack() {
             @Override
             public void onHttpRequestSuccess(@NotNull String response, int responseCode) {
