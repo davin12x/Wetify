@@ -27,7 +27,7 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherViewHolder>() {
 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val weatherList = data[position]
-        holder.updateView(weatherList)
+        holder.updateView(weatherList, position)
     }
 
     override fun getItemCount(): Int {

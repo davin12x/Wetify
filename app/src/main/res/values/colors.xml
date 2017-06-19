@@ -5,4 +5,20 @@
     <color name="colorAccent">#4CAF50</color>
     <color name="colorWhite">#FFFF</color>
     <color name="weather_item_row_background_color">#80FFFFFF</color>
+    <!--card_colors-->
+    <color name="card_yellow">#F5BE25</color>
+    <color name="card_green">#33B679</color>
+    <color name="card_comet">#565D80</color>
+    <color name="card_han_blue">#457AD1</color>
+    <color name="card_gray">#89929F</color>
+    <color name="card_mako">#525659</color>
+
+    <array name="card_colors">
+        <item>@color/card_yellow</item>
+        <item>@color/card_green</item>
+        <item>@color/card_comet</item>
+        <item>@color/card_han_blue</item>
+        <item>@color/card_gray</item>
+        <item>@color/card_mako</item>
+    </array>
 </resources>
