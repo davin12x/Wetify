@@ -66,7 +66,7 @@ class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private void fetchWeatherDataByName(String cityName, RequestGenerator requestGenerator) {
 
-        requestGenerator.generateFetchWeatherForecastByNameHttpRequest(cityName, new HttpCallBack() {
+        requestGenerator.fetchCurrentWeatherForecastByNameHttpRequest(cityName, new HttpCallBack() {
             @Override
             public void onHttpRequestSuccess(@NotNull String response, int responseCode) {
                 WeatherData weatherData = JsonParser.INSTANCE.parseCurrentWeather(response);

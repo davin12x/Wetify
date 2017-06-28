@@ -25,8 +25,14 @@ class RequestGenerator private constructor(applicationContext: Context){
         this.mApplicationContext = applicationContext;
     }
 
-    fun generateFetchWeatherForecastByNameHttpRequest(cityName: String, httpCallBack: HttpCallBack) {
+    fun fetchCurrentWeatherForecastByNameHttpRequest(cityName: String, httpCallBack: HttpCallBack) {
         val URL = UrlBuilder.buildCurrentTimeForeCastUrlByName(cityName)
+        return MyVolley.getInstance(mApplicationContext!!)
+                .addToRequestQueue(JsonRequest.generateJsonObjectRequest(URL, httpCallBack))
+    }
+
+    fun fetchFutureDaysForecastByNameHttpRequest(cityName: String, httpCallBack: HttpCallBack) {
+        val URL = UrlBuilder.buildFiveDaysForeCastUrlByName(cityName)
         return MyVolley.getInstance(mApplicationContext!!)
                 .addToRequestQueue(JsonRequest.generateJsonObjectRequest(URL, httpCallBack))
     }

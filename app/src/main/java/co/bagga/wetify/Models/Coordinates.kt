@@ -1,6 +1,8 @@
 package co.bagga.wetify.Models
 
-public class Coordinates {
+import java.io.Serializable
+
+public class Coordinates : Serializable {
     var lon: Double? = null
     var lat: Double? = null
 }

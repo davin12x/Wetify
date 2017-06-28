@@ -1,6 +1,8 @@
 package co.bagga.wetify.Models
 
-class WeatherData {
+import java.io.Serializable
+
+class WeatherData: Serializable {
     var coordinates: Coordinates? = null
     var main: Main? = null
     var wind: Wind? = null

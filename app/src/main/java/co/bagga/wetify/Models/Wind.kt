@@ -1,5 +1,7 @@
 package co.bagga.wetify.Models
 
-class Wind {
+import java.io.Serializable
+
+class Wind: Serializable {
     var speed: Double? = null
 }

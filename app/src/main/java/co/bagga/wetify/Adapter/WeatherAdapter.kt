@@ -1,8 +1,11 @@
 package co.bagga.wetify.Adapter
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import co.bagga.wetify.Activities.WeatherDetailActivity
 import co.bagga.wetify.Models.WeatherData
 import co.bagga.wetify.R
 import co.bagga.wetify.Utils.FilterWeatherDataByDay
@@ -28,6 +31,11 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherViewHolder>() {
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val weatherList = data[position]
         holder.updateView(weatherList, position)
+        holder.itemView.setOnClickListener {
+            val i = Intent(holder.itemView.context, WeatherDetailActivity::class.java)
+            i.putExtra(holder.itemView.context.getString(R.string.weather_data_model), weatherList)
+            startActivity(holder.itemView.context, i, null)
+        }
     }
 
     override fun getItemCount(): Int {
